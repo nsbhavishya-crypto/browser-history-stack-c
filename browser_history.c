@@ -1,14 +1,12 @@
 #include <stdio.h>
 
-#define MAX 5  // Maximum capacity for history stack
+#define MAX 5  
 
-// Global variables
-int history[MAX];  // Array to hold webpage ID numbers
-int top = -1;      // Stack pointer starts at -1 (empty)
+int history[MAX];  
+int top = -1;      
 
-// Function to visit a new webpage (PUSH operation)
 void visitPage() {
-    // Check for Stack Overflow
+    
     if (top == MAX - 1) {
         printf("\n[Error] History stack is full! Can't store more pages.\n");
     } else {
@@ -16,21 +14,19 @@ void visitPage() {
         printf("Enter webpage ID (e.g., 101, 102): ");
         scanf("%d", &pageID);
 
-        top++;                  // Move top up
-        history[top] = pageID;  // Store the page ID in the stack
+        top++;                  
+        history[top] = pageID;  
         printf("Successfully visited Page %d\n", history[top]);
     }
 }
 
-// Function to click the Back button (POP operation)
+
 void goBack() {
-    // Check for Stack Underflow
     if (top == -1) {
         printf("\n[Error] No previous history! You are at the start.\n");
     } else {
         printf("\nGoing back from Page %d\n", history[top]);
-        top--;  // Remove the top page by moving top down
-
+        top--; 
         if (top >= 0) {
             printf("Current page is now: Page %d\n", history[top]);
         } else {
@@ -39,7 +35,6 @@ void goBack() {
     }
 }
 
-// Function to display the history stack
 void displayHistory() {
     if (top == -1) {
         printf("\nYour browser history is empty.\n");
@@ -52,7 +47,6 @@ void displayHistory() {
     }
 }
 
-// Main function with menu loop
 int main() {
     int choice;
 
